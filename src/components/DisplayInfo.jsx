@@ -1,44 +1,55 @@
 import React from "react";
 import './DisplayInfo.scss';
 import Logo from './../vite.svg'
-class DisplayInfo extends React.Component {
+// class DisplayInfo extends React.Component {
+//     render(){
+//         const {listUser} = this.props;
+//         console.log('render')
+//         return (
+//             <div className='display-info-container'>
+//                 <div>
+//                 { true && listUser.map((user, index) => {
+//                     console.log(user)
+//                     return (
+//                         <div key={user.id} className={+user.age > 18 ? 'red' : 'green'}>
+//                             <p>
+//                                 Name: {user.name}
+//                             </p>
+//                             <p>
+//                                 Age: {user.age}
+//                             </p>
+//                             <button onClick={() => this.props.handleDeleteUser(user.id)}>Delete</button>
+//                         </div>
+//                     )
+//                 })}
+//                 </div>
+//             </div>
+//         );
+//     }
 
-    state = {
-        isShowListUser : false
-    }
-    handleShowHide = () =>
-    {
-        this.setState({
-            isShowListUser: !this.state.isShowListUser
-        })
-    }
-    render(){
-        const {listUser} = this.props;
-        return (
-            <div className='display-info-container'>
-                <img src={Logo}/>
-                <div>
-                    <span onClick={(event) => {this.handleShowHide(event)}}> {this.state.isShowListUser && 'Hide list users:' || 'Show list users'}</span>
-                </div>
-                <div>
-                { this.state.isShowListUser && listUser.map((user, index) => {
-                    console.log(user)
-                    return (
-                        <div key={user.id} className={+user.age > 18 ? 'red' : 'green'}>
-                            <p>
-                                Name: {user.name}
-                            </p>
-                            <p>
-                                Age: {user.age}
-                            </p>
-                        </div>
-                    )
-                })}
-                </div>
+// }
+const DisplayInfo = (props) => {
+    const {listUser} = props;
+    return (
+        <div className='display-info-container'>
+            <div>
+            { true && listUser.map((user, index) => {
+                console.log(user)
+                return (
+                    <div key={user.id} className={+user.age > 18 ? 'red' : 'green'}>
+                        <p>
+                            Name: {user.name}
+                        </p>
+                        <p>
+                            Age: {user.age}
+                        </p>
+                        <button onClick={() => props.handleDeleteUser(user.id)}>Delete</button>
+                    </div>
+                )
+            })}
             </div>
-        );
-    }
-
+        </div>
+    );
+        
 }
-
 export default DisplayInfo;
