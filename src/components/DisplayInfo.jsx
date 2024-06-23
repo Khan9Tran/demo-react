@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './DisplayInfo.scss';
 import Logo from './../vite.svg'
 // class DisplayInfo extends React.Component {
@@ -35,6 +35,12 @@ const DisplayInfo = (props) => {
     const handleShowHideListUser = () => {
         setShowListUser(!isShowListUser)
     }
+
+    useEffect(() => {
+        if (listUser.length === 4) {
+            alert('listUser', listUser)
+        }
+    },[listUser])
     return (
         <div className='display-info-container'>
             <div onClick={() => {handleShowHideListUser()}}>
