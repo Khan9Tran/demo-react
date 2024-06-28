@@ -1,6 +1,6 @@
 import "react-pro-sidebar/dist/css/styles.css";
-import {DiReact} from "react-icons/di";
-import {MdDashboard} from "react-icons/md";
+import { DiReact } from "react-icons/di";
+import { MdDashboard } from "react-icons/md";
 import sidebarBg from "../../assets/bg2.jpg";
 import "./SideBar.scss";
 import {
@@ -20,6 +20,7 @@ import {
   FaRegLaughWink,
   FaHeart,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SideBar = (props) => {
   const { image, collapsed, toggled, handleToggleSidebar } = props;
@@ -32,7 +33,7 @@ const SideBar = (props) => {
         breakPoint="md"
         onToggle={handleToggleSidebar}
       >
-        <SidebarHeader >
+        <SidebarHeader>
           <div
             style={{
               padding: "24px",
@@ -45,7 +46,7 @@ const SideBar = (props) => {
               whiteSpace: "nowrap",
             }}
           >
-            <DiReact size={"3rem"} color={"#00bfff"}/>
+            <DiReact size={"3rem"} color={"#00bfff"} />
             NHUT KHANG
           </div>
         </SidebarHeader>
@@ -53,17 +54,21 @@ const SideBar = (props) => {
         <SidebarContent>
           <Menu iconShape="circle">
             <MenuItem
-              icon={<MdDashboard/>}
+              icon={<MdDashboard />}
               suffix={<span className="badge red">new</span>}
             >
               Dashboard
+              <Link to="/admins" />
             </MenuItem>
             <SubMenu
               title={"Features"}
               suffix={<span className="badge yellow">3</span>}
               icon={<FaGem />}
             >
-              <MenuItem>Quản lý Users</MenuItem>
+              <MenuItem>
+                Quản lý Users
+                <Link to="/admins/manage-users" />
+              </MenuItem>
               <MenuItem>Quản lý bài Quiz</MenuItem>
               <MenuItem>Quản lý câu hỏi</MenuItem>
             </SubMenu>
