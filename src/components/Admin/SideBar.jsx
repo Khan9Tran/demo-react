@@ -1,5 +1,8 @@
 import "react-pro-sidebar/dist/css/styles.css";
+import {DiReact} from "react-icons/di";
+import {MdDashboard} from "react-icons/md";
 import sidebarBg from "../../assets/bg2.jpg";
+import "./SideBar.scss";
 import {
   ProSidebar,
   Menu,
@@ -29,7 +32,7 @@ const SideBar = (props) => {
         breakPoint="md"
         onToggle={handleToggleSidebar}
       >
-        <SidebarHeader>
+        <SidebarHeader >
           <div
             style={{
               padding: "24px",
@@ -42,6 +45,7 @@ const SideBar = (props) => {
               whiteSpace: "nowrap",
             }}
           >
+            <DiReact size={"3rem"} color={"#00bfff"}/>
             NHUT KHANG
           </div>
         </SidebarHeader>
@@ -49,21 +53,19 @@ const SideBar = (props) => {
         <SidebarContent>
           <Menu iconShape="circle">
             <MenuItem
-              icon={<FaTachometerAlt />}
+              icon={<MdDashboard/>}
               suffix={<span className="badge red">new</span>}
             >
-              dashboard
+              Dashboard
             </MenuItem>
-            <MenuItem icon={<FaGem />}>components</MenuItem>
-          </Menu>
-          <Menu iconShape="circle">
             <SubMenu
+              title={"Features"}
               suffix={<span className="badge yellow">3</span>}
-              icon={<FaRegLaughWink />}
+              icon={<FaGem />}
             >
-              <MenuItem> 1</MenuItem>
-              <MenuItem> 2</MenuItem>
-              <MenuItem> 3</MenuItem>
+              <MenuItem>Quản lý Users</MenuItem>
+              <MenuItem>Quản lý bài Quiz</MenuItem>
+              <MenuItem>Quản lý câu hỏi</MenuItem>
             </SubMenu>
           </Menu>
         </SidebarContent>
@@ -89,7 +91,7 @@ const SideBar = (props) => {
                   overflow: "hidden",
                 }}
               >
-                viewSource
+                Hỏi Nhựt Khang
               </span>
             </a>
           </div>
